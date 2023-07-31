@@ -2,6 +2,7 @@ import express from 'express';
 import { engine } from 'express-handlebars';
 import SettingsBill from './settings-bill.js';
 import bodyParser from 'body-parser';
+import moment from 'moment';
 
 let app = express();
 
@@ -18,7 +19,7 @@ app.get('/', function(req, res){
     res.render('index', {
         settings: SettingsBillFactory.getSettings(),
         totals: SettingsBillFactory.totals(),
-        className: SettingsBillFactory.totalClassName()
+        className: SettingsBillFactory.totalClassName(),
     })
 })
 
@@ -29,6 +30,7 @@ app.post('/settings', function(req, res){
         warningLevel: req.body.warningLevel,
         criticalLevel: req.body.criticalLevel
     });
+    SettingsBillFactory.getSettings();
 
     res.redirect('/')
 })
@@ -39,10 +41,16 @@ app.post('/action', function(req, res){
     res.redirect('/')
 })
 
-app.get('/actions', function(req, res){
-    res.render('actions', {actions: SettingsBillFactory.actions()})
-})
-
+app.get('/actions', function (req, res) {
+    const actions = SettingsBillFactory.actions();
+  
+    actions.forEach((action) => {
+        action.timestamp = moment().startOf('hour').fromNow();
+    });
+  
+    res.render('actions', { actions: actions });
+});
+  
 app.get('/actions/:type', function(req, res){
     let actionType = req.params.type;
 

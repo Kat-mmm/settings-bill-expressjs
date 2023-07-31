@@ -1,5 +1,3 @@
-import { format } from 'date-fns';
-
 export default function SettingsBill() {
     let smsCost;
     let callCost;
@@ -28,18 +26,18 @@ export default function SettingsBill() {
     function recordAction(action) {
 
         let cost = 0;
-        if (action === 'sms'){
+        if (action === 'sms' && action != ''){
             cost = smsCost;
         }
-        else if (action === 'call'){
+        else if (action === 'call' && action != ''){
             cost = callCost;
         }
 
-        if(!hasReachedCriticalLevel()){
+        if(!hasReachedCriticalLevel() && cost > 0){
             actionList.push({
                 type: action,
                 cost,
-                timestamp: format(new Date(), 'EEEE, MMMM d, yyyy')
+                timestamp: new Date()
             });
         }
     }
