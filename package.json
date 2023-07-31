@@ -1,30 +1,38 @@
 {
-  "name": "settings-bill-expressjs",
+  "name": "",
   "version": "1.0.0",
   "description": "",
-  "type": "module",
   "main": "index.js",
-  "scripts": {
-    "test": "mocha",
-    "build": "babel src -d dist"
+  "type": "module",
+  "license": "AGPL-version-3.0",
+  "private": false,
+  "engines": {
+    "node": ">= 14.0.0",
+    "npm": ">= 6.0.0"
   },
+  "homepage": "",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Kat-mmm/settings-bill-expressjs.git"
+    "url": ""
   },
+  "bugs": "",
   "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Kat-mmm/settings-bill-expressjs/issues"
+  "author": {
+    "name": "",
+    "email": "",
+    "url": ""
   },
-  "homepage": "https://github.com/Kat-mmm/settings-bill-expressjs#readme",
+  "contributors": [],
+  "scripts": {
+    "dev": "",
+    "test": "mocha"
+  },
+  "devDependencies": {
+    "mocha": "^10.2.0"
+  },
   "dependencies": {
     "body-parser": "^1.20.2",
     "express": "^4.18.2",
     "express-handlebars": "^7.1.0"
-  },
-  "devDependencies": {
-    "mocha": "^10.2.0"
   }
 }
