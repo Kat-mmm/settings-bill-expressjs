@@ -26,14 +26,14 @@ export default function SettingsBill() {
     function recordAction(action) {
 
         let cost = 0;
-        if (action === 'sms' && action != ''){
+        if (action === 'sms'){
             cost = smsCost;
         }
-        else if (action === 'call' && action != ''){
+        else if (action === 'call'){
             cost = callCost;
         }
 
-        if(!hasReachedCriticalLevel() && cost > 0){
+        if(!hasReachedCriticalLevel() && action != '' && cost > 0){
             actionList.push({
                 type: action,
                 cost,
