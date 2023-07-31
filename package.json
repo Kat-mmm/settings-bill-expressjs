@@ -5,8 +5,8 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    
-    "test": "mocha"
+    "test": "mocha",
+    "build": "babel src -d dist"
   },
   "repository": {
     "type": "git",
