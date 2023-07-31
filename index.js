@@ -54,7 +54,13 @@ app.get('/actions', function (req, res) {
 app.get('/actions/:type', function(req, res){
     let actionType = req.params.type;
 
-    res.render('actions', {actions: SettingsBillFactory.actionsFor(actionType)})
+    const actions = SettingsBillFactory.actionsFor(actionType);
+  
+    actions.forEach((action) => {
+        action.timestamp = moment().startOf('hour').fromNow();
+    });
+
+    res.render('actions', {actions: actions})
 })
 
 
