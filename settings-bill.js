@@ -1,3 +1,5 @@
+import { format } from 'date-fns';
+
 export default function SettingsBill() {
     let smsCost;
     let callCost;
@@ -33,11 +35,13 @@ export default function SettingsBill() {
             cost = callCost;
         }
 
-        actionList.push({
-            type: action,
-            cost,
-            timestamp: new Date()
-        });
+        if(!hasReachedCriticalLevel()){
+            actionList.push({
+                type: action,
+                cost,
+                timestamp: format(new Date(), 'EEEE, MMMM d, yyyy')
+            });
+        }
     }
 
     function actions(){
@@ -101,6 +105,18 @@ export default function SettingsBill() {
         return total >= criticalLevel;
     }
 
+    function totalClassName(){
+        if(hasReachedWarningLevel()){
+            return 'warning';
+        }
+        else if(hasReachedCriticalLevel()){
+            return 'danger';
+        }
+        else{
+            return '';
+        }
+    }
+
     return {
         setSettings,
         getSettings,
@@ -109,6 +125,7 @@ export default function SettingsBill() {
         actionsFor,
         totals,
         hasReachedWarningLevel,
-        hasReachedCriticalLevel
+        hasReachedCriticalLevel,
+        totalClassName
     }
 }

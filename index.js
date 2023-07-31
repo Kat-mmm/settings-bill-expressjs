@@ -17,7 +17,8 @@ let SettingsBillFactory = SettingsBill();
 app.get('/', function(req, res){
     res.render('index', {
         settings: SettingsBillFactory.getSettings(),
-        totals: SettingsBillFactory.totals()
+        totals: SettingsBillFactory.totals(),
+        className: SettingsBillFactory.totalClassName()
     })
 })
 
