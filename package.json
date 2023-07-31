@@ -25,13 +25,9 @@
   "contributors": [],
   "scripts": {
     "dev": "",
-    "test": "mocha",
-    "build": "babel src -d dist"
+    "test": "mocha"
   },
   "devDependencies": {
-    "@babel/cli": "^7.22.9",
-    "@babel/core": "^7.22.9",
-    "@babel/preset-env": "^7.22.9",
     "mocha": "^10.2.0"
   },
   "dependencies": {
