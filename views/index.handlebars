@@ -61,7 +61,7 @@
                                 <td>
                                     <a href="/actions" class={{className}}>Total</a>
                                 </td>
-                                <td> R<span class="totalSettings">{{totals.grandTotal}}</span> </td>
+                                <td class={{className}}> R<span class="totalSettings">{{totals.grandTotal}}</span> </td>
                             </tr>
                         </table>
 
@@ -71,16 +71,16 @@
                         <form action="/settings" method="POST">
                             <label for="exampleEmailInput">Call cost</label>
                             <input class="u-full-width callCostSetting" type="number" placeholder="eg. 2.55" step=".01"
-                                name="callCost" value={{settings.callCost}}/>
+                                name="callCost" value="{{settings.callCost}}"/>
                             <label for="exampleEmailInput">SMS cost</label>
                             <input class="u-full-width smsCostSetting" type="number" placeholder="eg. 0.65" step=".01"
-                                name="smsCost" value={{settings.smsCost}}/>
+                                name="smsCost" value="{{settings.smsCost}}"/>
                             <label for="">Warning level</label>
                             <input class="u-full-width warningLevelSetting" type="number" name="warningLevel"
-                                placeholder="eg. 30.00" class="warningLevel" value={{settings.warningLevel}}/>
+                                placeholder="eg. 30.00" class="warningLevel" value="{{settings.warningLevel}}"/>
                             <label for="">Critical level</label>
                             <input class="u-full-width criticalLevelSetting" type="number" name="criticalLevel"
-                                placeholder="eg. 65.00" value={{settings.criticalLevel}}/>
+                                placeholder="eg. 65.00" value="{{settings.criticalLevel}}"/>
                             <button class="button-primary updateSettings" type="submit" name="button">Update
                                 settings</button>
                         </form>
